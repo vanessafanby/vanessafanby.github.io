@@ -1,0 +1,84 @@
+/* h1{
+    color: lightskyblue;
+}
+h2{
+    color: bisque;
+} */
+body {
+  background-color: beige;
+  font-size: 1.2rem;
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* this is a comment */
+
+h1 {
+  color: brown;
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+h3 {
+  color: brown;
+  font-size: 1.6rem;
+}
+p {
+  color: lightsalmon;
+}
+li {
+  color: lightseagreen;
+}
+
+/* h3{
+    color: steelblue;
+} */
+
+.blue-color {
+  color: blue;
+}
+#pink-color {
+  color: fuchsia;
+}
+section {
+  text-align: center;
+  border: 1px solid saddlebrown;
+}
+
+.heading-border {
+  border: 3px solid salmon;
+  border-style: dashed;
+}
+
+/* h1{
+    color: lightskyblue;
+}
+h2{
+    color: bisque;
+}
+p{
+    color: lightsalmon;
+}
+li{
+    color: lightseagreen;
+}
+
+h3{
+    color: steelblue;
+} */
+
+/*font-weight: bold ;
+}
+/*
+curly brackets { }
+parentheses < >
+square brackets [ ]
+round brackets ( )
+colon :
+semicolon ;
+syntax: rules of the lang 
+*/
