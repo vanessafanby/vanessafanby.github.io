@@ -1,4 +1,11 @@
- {
+/* 
+*   Kevin Powell
+*   https://youtu.be/cCAtD_BAHNw 
+*/
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -38,4 +45,11 @@ h6 {
 p {
   max-width: 75ch;
   text-wrap: pretty; /* Prevents orphans on lines */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
 }
