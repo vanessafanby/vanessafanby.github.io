@@ -1,3 +1,12 @@
+let students = ["Rohit", "Jimmy", "Ivy"];
+// console.log("Hello", students[0]);
+// console.log("Hello", students[1]);
+// console.log("Hello", students[2]);
+// console.log("Hello", students[3]);
+for (let i = 0; i < students, length; i++) {
+  console.log("HELLO", students[i]);
+}
+
 // number variable 0 - infinity dont use quotes
 let a = 100;
 let b = parseInt("20");
