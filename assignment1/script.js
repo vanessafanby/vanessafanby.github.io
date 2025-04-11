@@ -4,6 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button.addEventListener("click", () => {
     audio.play();
-    button.textContent = "Hope you enjoy";
+    button.textContent = "Click to Enable Sound";
   });
 });
