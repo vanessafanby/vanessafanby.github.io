@@ -1,3 +1,9 @@
+/* https://mycolor.space/
+  this is the link that I used to pick my color scheme. I used this website
+    because it could provide me with a range of colour choices. Therefore I
+    picked this classy colour palette, exisiting of five colours
+  #B8D4F8,#3C4856, #A0ACBD, #EBB9CA, #B38494. These five colours are also very alike the website 'Luniapp' aesthic feeling, therefore i choose these colours to match*/
+
 img {
   display: block;
   margin: 20px auto;
@@ -22,18 +28,18 @@ h1 {
   font-size: 1.6rem;
   margin-top: 30px;
   margin-bottom: 20px;
-  color: #3c4856;
+  color: #3c4856; /* Navy Blue background */
 }
 p {
-  width: 70%; /* make it responsive and wider */
-  max-width: 800px; /* cap the max width */
+  width: 70%;
+  max-width: 800px;
   min-height: 300px;
-  margin: 30px auto; /* center horizontally with vertical space */
+  margin: 30px auto;
   padding: 30px;
 
   background-color: white;
   border: 5px solid #3c4856; /* dark border */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* soft shadow for pop */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 
   color: #3c4856;
@@ -41,7 +47,8 @@ p {
   line-height: 1.6;
 }
 
-/* Borders with your chosen colors */
+/* I used the asset from https://www.w3schools.com/html/ to assit me with the border dimensions.  */
+
 .border-darkblue {
   border: 4px solid #3c4856;
 }
@@ -57,3 +64,4 @@ p {
 .border-rose {
   border: 4px dashed #b38494;
 }
+/* I made the border weight 4px since I want to make it visibal and obvious */
