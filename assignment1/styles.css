@@ -41,6 +41,7 @@ p {
   border: 5px solid #3c4856; /* dark border */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  /* i decided to make the box's background colour different, just to make it look less boring and easy to read */
 
   color: #3c4856;
   font-size: 1.2rem;
