@@ -7,4 +7,4 @@ document.addEventListener("DOMContentLoaded", () => {
     button.textContent = "Click to Enable Sound";
   });
 });
-// I used ChatGPT to assit me Javascript. I decided to include this music since it is classic and calm.
+// I had trouble adding the EventListener, therefore I used ChatGPT to assit me Javascript. It assited me by entering 'getElementByID'. I decided to include this music since it is classic and calm.

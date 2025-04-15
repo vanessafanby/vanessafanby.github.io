@@ -7,6 +7,7 @@
 img {
   display: block;
   margin: 20px auto;
+  /* i have decided to center the image, therefore set the margin to 20px */
   max-width: 100%;
   height: auto;
 }
@@ -25,6 +26,7 @@ body {
 
 h1 {
   font-weight: bold;
+  /* i want to make the main heading strong + visible with bold text and larger font size. */
   font-size: 1.6rem;
   margin-top: 30px;
   margin-bottom: 20px;
@@ -47,7 +49,8 @@ p {
   font-size: 1.2rem;
   line-height: 1.6;
 }
-
+/* Ive decided to use white background to make the text stand out from the blue background. */
+/* I have set the border radius to 12px for rounded corners, to make it feel softer and friendlier. */
 /* I used the asset from https://www.w3schools.com/html/ to assit me with the border dimensions.  */
 
 .border-darkblue {
@@ -66,4 +69,4 @@ p {
   border: 4px dashed #b38494;
 }
 /* I made the border weight 4px since I want to make it visibal and obvious */
-/* just to make it more interesting,i made the border dotted or dashed instead of all solid lines */
+/* just to make it more interesting, I added variety and interest. For an example: i made the border dotted or dashed instead of all solid lines, which adds texture and not just colour */
