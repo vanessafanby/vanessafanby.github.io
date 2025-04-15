@@ -1,0 +1,27 @@
+:root {
+  --bg-color: rgb(32, 20, 5);
+  padding: 10px;
+  border: 24px;
+}
+audio,
+video {
+  display: block;
+  margin-bottom: 20px;
+}
+
+video {
+  width: 600px;
+  height: 400px;
+}
+
+button {
+  padding: 20px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  scale: 0.9;
+}
