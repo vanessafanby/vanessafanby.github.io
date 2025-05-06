@@ -157,7 +157,7 @@ const playlist = [
     {
         id:2
         sr: "zenscape.mp4",
-        name:"zenscaoe",    
+        name:"zenscaoe"
     },
     {
         id:3
