@@ -17,6 +17,82 @@ function formatTime(seconds) {
     .padStart(2, "0")}`;
 }
 
+const playPauseButton = document.querySelector("#play-pause-button");
+console.log(playPauseButton);
+
+playPauseButton.addEventListener("click", togglePlayback);
+
+const playPauseImg = document.querySelector("#play-pause-img");
+console.log(playPauseImg);
+
+function togglePlayback() {
+  if (myVideo.paused || myVideo.ended) {
+    myVideo.play();
+    playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/pause--v2.png";
+  } else {
+    myVideo.pause();
+    playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/play--v2.png";
+  }
+}
+
+const muteUnmuteButton = document.querySelector("#mute-unmute-button");
+console.log(muteUnmuteButton);
+
+muteUnmuteButton.addEventListener("click", toggleAudio);
+
+const muteUnmuteImg = document.querySelector("#mute-unmute-img");
+console.log(muteUnmuteImg);
+
+function toggleAudio() {
+  if (myVideo.muted) {
+    myVideo.muted = false;
+    muteUnmuteImg.src =
+      "https://img.icons8.com/ios-glyphs/30/high-volume--v2.png";
+  } else {
+    myVideo.muted = true;
+    muteUnmuteImg.src = "https://img.icons8.com/ios-glyphs/30/no-audio--v1.png";
+  }
+}
+
+const fullscreenButton = document.querySelector("#fullscreen-button");
+console.log(fullscreenButton);
+
+fullscreenButton.addEventListener("click", toggleFullscreen);
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    myVideo.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+const heartButton = document.querySelector("#heart-button");
+console.log(heartButton);
+
+heartButton.addEventListener("click", updateLikes);
+
+const likesContainer = document.querySelector("#likes");
+let likes = 0;
+
+function updateLikes() {
+  likes++;
+  likesContainer.textContent = likes;
+}
+
+const fastForwardButton = document.querySelector("#fast-forward-button");
+console.log(fastForwardButton);
+
+fastForwardButton.addEventListener("click", fastForward);
+
+function fastForward() {
+  if (myVideo.playbackRate === 1.0) {
+    myVideo.playbackRate = 2.0;
+  } else {
+    myVideo.playbackRate = 1.0;
+  }
+}
+
 // Update current time during video playback
 video.addEventListener("timeupdate", () => {
   currentTimeDisplay.textContent = formatTime(video.currentTime);
