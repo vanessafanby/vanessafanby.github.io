@@ -4,31 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanessa's Assignment 2</title>
-    <!-- add the font family of your choice -->
+    <!-- I have linked my javascript, reset and styling sheet here -->
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-   <!-- Google Fonts: Dosis -->
+   <!-- I have decided to use Google Fonts: Dosis as my main font for this webpage since it gave me a friendly, calm and rounded readability feeling. And i thought that it'll be appealing to DIY/craft audiences, especially for younger audiences. Mainly targeting to kids under 12.-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet" />
 
-    <!-- Favicons -->
+    <!-- I decided to use a person holding a paintiing palette as my favicon-->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <!-- I used a purple background color icon since I also want to matching with my
-    research project, to have an aesthetic type of feel flaticon, is an artist symbolising this website is about making craft.-->
+    <!-- I used an artistic person (holding a painting palette) as my favicon since I wanted to match it with my
+    media play project, which is a crafting video. This is also because it symbolises “hands-on creativity,” 
+     aligning with my site’s DIY, art-and-craft focus.-->
   </head>
 
   <body>
-    <!-- Header Section -->
+    <!-- Quick and easy title for the audience to know what this webpage is about -->
     <header>
       <h1>How to make a Windmill?</h1>
     </header>
 
-    <!-- Main Content Section -->
      <main>
     <div class="double-border">
       <div class="player-section">
@@ -38,10 +38,12 @@
             type="video/mp4"
           />
         </video>
+        <!-- The original video exceeded 10MB. Therefore I compressed it using Compress2Go to upload it successfully on GitHub -->
         <div class="time-display">
           <span id="currentTime">00:00</span> / <span id="totalTime">04:35</span>
         </div>
         
+        <!-- I used media player icons from Icons8. E.g for play/pause/mute/fast forward/rewind/fullscreen/heart to add familiarity and visual clarity -->
         <div class="controls">
           <div class="controls-left">
           <button id="play-pause-button">
@@ -86,8 +88,12 @@
         </button>
         <div id="likes"></div>
       </div>
+      <!-- I included the heart/like button from Icon8, and comment section to provide user feedback and engagement -->
+<!-- By including these features, I want to encourage more interaction, self-expression, and community sharing in my webpage. I think that it is very meaningful in DIY and crafting culture -->
+
         
-        <!-- The original video file is over 10MB so I compressed the video size to 9MB using compress2go -->
+        <!-- Here, I have progress indicator, visual highlights and navigation to specific tutorial parts to enhance learnability, this is to make the website more user friendly, especially for those who has lost track when making the craft --> 
+         <!-- Therefore, this also means that kids are able to do crafting on their own even without being accompanied by family members -->
         <div class="progress-bar-container">
           <div class="progress-bar" id="progressBar"></div>
           <div class="step-markers">
@@ -98,7 +104,8 @@
             <div class="marker" data-time="270">Well Done<br><small>04:30</small></div>
           </div>          
         </div>
-
+<!-- I decided to separate 'Materials' and 'Instructions' to allow younger users to follow along -->
+<!-- Styled with a different colored gradient background and double border, it visually groups and contrast against the main player, allowing the audience to realise this is a different part and not the video -->
         <div class="instruction-box">
           <h2>Tools and Materials Needed:</h2>
           <ul class="materials-list">
@@ -137,16 +144,34 @@
           </form>
           <div id="commentsContainer"></div>
         </div>
+        <!-- I decided to include a comment section to allow user interaction and emphasize a sense of community among visitors. By allowing users to share their thoughts, ask questions, or provide feedback, I aim to make the webpage to have a more dynamic and participatory experience. This aligns with my goal of creating a creatve, friendly, and user-centered learning environment. -->
+        
         
     </main>
 
-    <!-- Footer Section -->
+    <!-- Since I need to follow ethical and academic guidelines, I have properly credited external resources from Icon 8 here. -->
+<!-- Icon credits and video link are also included -->
+
     <footer>
       <p>&copy; 2025 Media Player Website. All rights reserved.</p>
-      <a href="https://icons8.com/icon/59862/play">Play</a> icon by
-      <a href="https://icons8.com">Icons8</a>
-      <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
-      <a href="https://icons8.com">Icons8</a>
+      <a href="https://icons8.com/icon/TlSnjmNzYgKT/play">Play</a> icon by
+      <a href="https://icons8.com">Icons8,</a> 
+      <a href="https://icons8.com/icon/pSwquXkxwLD8/pause">Pause</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://icons8.com/icon/reqgj3e1uKBy/audio">Audio</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://icons8.com/icon/91635/no-audio">No audio</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://icons8.com/icon/91476/fast-forward">Fast forward</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://icons8.com/icon/91480/rewind">Rewind</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://icons8.com/icon/69155/full-screen">Full screen</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://icons8.com/icon/DFU1kReSUccu/heart">Heart</a> icon by
+      <a href="https://icons8.com">Icons8,</a>
+      <a href="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/berry-bunch_handheld-windmill-fan.mp4">Media Resource</a> link by
+      RMIT</a> 
     </footer>
   </body>
 </html>
