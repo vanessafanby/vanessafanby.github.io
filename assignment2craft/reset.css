@@ -1,56 +1,56 @@
-/* 
-*   Kevin Powell
-*   https://youtu.be/cCAtD_BAHNw 
-*/
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
-  font: inherit; /* Get rid of all font sizes and heights */
+  box-sizing: border-box;
 }
 
-html {
-  color-scheme: dark light; /* Default dark */
-  hanging-punctuation: first last; /* Not supported in Chrome */
-}
-
+html,
 body {
-  min-height: 100vh;
+  height: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-/* which makes the text more readable and aesthetic */
 
-/* Media responsive */
-img,
-picture,
-svg,
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 video {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
+ol,
+ul {
+  list-style: none;
 }
 
-p {
-  /* max-width: 75ch; */
-  text-wrap: pretty; /* Prevents orphans on lines */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  :has(:target) {
-    scroll-behavior: smooth;
-    scroll-padding-top: 3rem;
-  }
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

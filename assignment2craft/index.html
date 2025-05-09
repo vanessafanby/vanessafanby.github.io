@@ -8,14 +8,10 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- This font is from Google, I used this font since I wanted to make it
-    matching with my reseach project webpage's font. -->
+   <!-- Google Fonts: Dosis -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet" />
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -23,64 +19,50 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     <link rel="manifest" href="site.webmanifest" />
     <!-- I used a purple background color icon since I also want to matching with my
-    research project, to have an aesthetic type of feel (remember to add attribution for windmill from flaticon) I have added in link down below-->
+    research project, to have an aesthetic type of feel flaticon, is an artist symbolising this website is about making craft.-->
   </head>
 
   <body>
     <!-- Header Section -->
     <header>
-      <h1>Vanessa's Assignment 2</h1>
+      <h1>How to make a Windmill?</h1>
     </header>
 
-    <!-- Navigation Section -->
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
-        <!-- Add or remove navigation items as needed -->
-      </ul>
-    </nav>
-
     <!-- Main Content Section -->
-    <main class="container">
-      <!-- Media Player Section -->
-      <div class="media-player">
-        <video id="custom-video-player" controls>
+     <main>
+    <div class="double-border">
+      <div class="player-section">
+        <video id="tutorialVideo" controls>
           <source
             src="berry-bunch_handheld-windmill-fan (1).mp4"
             type="video/mp4"
           />
         </video>
-        <div class="custom-controls">
-          <button id="play-pause-btn" onclick="togglePlayPause()">
-            <img
-              id="play-pause-img"
-              src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-              alt="Play Button"
-              width="24"
-              height="24"
-            />
-          </button>
-          <!-- add the missing buttons or functionality here -->
-          <div class="progress-bar">
-            <span id="progress-bar-fill"></span>
-          </div>
+        <div class="time-display">
+          <span id="currentTime">00:00</span> / <span id="totalTime">04:35</span>
+        </div>
+        
+        <!-- The original video file is over 10MB so I compressed the video size to 9MB using compress2go -->
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progressBar"></div>
+          <div class="step-markers">
+            <div class="marker" data-time="0">Intro<br><small>00:00</small></div>
+            <div class="marker" data-time="16">Materials<br><small>00:16</small></div>
+            <div class="marker" data-time="32">Windmill<br><small>00:32</small></div>
+            <div class="marker" data-time="218">Spinning<br><small>03:38</small></div>
+            <div class="marker" data-time="270">Well Done<br><small>04:30</small></div>
+          </div>          
         </div>
       </div>
+    </main>
+      
 
-      <!-- Additional Content Section -->
-      <section>
-        <h2>Additional Content</h2>
-        <p>This is where you can showcase any other relevant content.</p>
-        <!-- Add more content as needed -->
-      </section>
+      
     </main>
 
     <!-- Footer Section -->
     <footer>
-      <p>&copy; 2024 Media Player Website. All rights reserved.</p>
+      <p>&copy; 2025 Media Player Website. All rights reserved.</p>
       <a href="https://icons8.com/icon/59862/play">Play</a> icon by
       <a href="https://icons8.com">Icons8</a>
       <a href="https://icons8.com/icon/61012/pause">Pause</a> icon by
