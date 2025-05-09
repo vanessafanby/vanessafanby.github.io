@@ -1,11 +1,10 @@
 const video = document.getElementById("tutorialVideo");
 const progressBar = document.getElementById("progressBar");
 const markers = document.querySelectorAll(".marker");
-const steps = document.querySelectorAll("#instructionSteps li");
-const nextBtn = document.getElementById("nextStep");
-const prevBtn = document.getElementById("prevStep");
 const currentTimeDisplay = document.getElementById("currentTime");
 const totalTimeDisplay = document.getElementById("totalTime");
+const fastForwardButton = document.querySelector("#fast-forward-button");
+const rewindButton = document.querySelector("#rewind-button");
 
 let currentStep = 0;
 
@@ -67,6 +66,22 @@ function toggleFullscreen() {
   }
 }
 
+// Fast Forward Function
+fastForwardButton.addEventListener("click", () => {
+  if (video.playbackRate === 1.0) {
+    video.playbackRate = 2.0;
+  } else if (video.playbackRate === 2.0) {
+    video.playbackRate = 3.0;
+  } else {
+    video.playbackRate = 1.0;
+  }
+});
+
+// Rewind Function (skip back 5 seconds)
+rewindButton.addEventListener("click", () => {
+  video.currentTime = Math.max(0, video.currentTime - 5); // rewind 5 seconds
+});
+
 const heartButton = document.querySelector("#heart-button");
 console.log(heartButton);
 
@@ -88,6 +103,8 @@ fastForwardButton.addEventListener("click", fastForward);
 function fastForward() {
   if (video.playbackRate === 1.0) {
     video.playbackRate = 2.0;
+  } else if (video.playbackRate === 2.0) {
+    video.playbackRate = 3.0;
   } else {
     video.playbackRate = 1.0;
   }
