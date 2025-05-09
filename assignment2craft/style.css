@@ -1,12 +1,11 @@
-/* Base layout */
+/* For this assignment, I have used 'colorhunt' to assist me with my color themes. I have chosen pastel colors like soft blues (#b8d4f8), pink (#ebb9ca, #f8d7d7), and purples (#b38494, #a7b7e4) to reflect a welcoming, creative, and gentle tone. I think that these hues suit the crafting tutorial context by reinforcing feelings of calmness and fun—ideal for encouraging a creative learning experience. */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Dosis", sans-serif;
   margin: 0;
-  background: #b8d4f8;
-  color: #3c4856;
+  background: #b8d4f8; /* I have decided to use a soft blue background for a calming crafting theme */
+  color: #3c4856; /* Here, I have decided to use dark grey as the text to have a contrast from the background which also makes it easier to read. */
   text-align: center;
 }
 
@@ -18,16 +17,26 @@ body {
   width: auto;
   text-align: left;
 }
+/* I have used bullet points here to help users gather supplies before starting. It is unordered but it has easy scannability */
 
+/* Ordered instructions for clarity in step-by-step guidance */
 .instructions-list {
   list-style-type: decimal;
+  /* Allow the audience to follow the crafting process sequentially */
   font-size: 18px;
   padding-left: 40px;
   text-align: left;
 }
+/* For instuction, i have used numbered points for clear guidance for progressive actions. This also tells the users that they must follow steps in that exact order to successfully make the windmill.*/
 
+/* I have included a styled box that includes tutorial content. I have used gradient color as the background to make it look different with the single-colored background to let the audience know this is a seperate thing, important but not clickable */
 .instruction-box {
-  background: linear-gradient(to bottom, #fffbe6, #ffe6f0);
+  background: linear-gradient(
+    to bottom,
+    #fffbe6,
+    #ffe6f0
+  ); /* Warm gradient to make it look calm and visual appealing */
+  /* I have used w3school to assist me with the gradient look: https://www.w3schools.com/css/css3_gradients.asp */
   border: double 5px #ccc;
   padding: 20px;
   margin: 30px auto;
@@ -42,8 +51,8 @@ body {
   padding-left: 40px;
   text-align: left;
 }
+/* I have decided to make the materials and instructions the same since i wanted to make it look consist and not odd */
 
-/* Header styling */
 header {
   text-align: center;
   padding: 20px 10px;
@@ -75,6 +84,7 @@ main {
   padding: 20px;
 }
 
+/* I just thought that the double border looks more interesting comparing with a single box*/
 .double-border {
   padding: 20px;
   border: 4px double #a0acbd;
@@ -85,12 +95,10 @@ main {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Player styling */
 .player-section {
   text-align: center;
 }
 
-/* Responsive video */
 video {
   width: 100%;
   max-width: 800px;
@@ -99,15 +107,13 @@ video {
   margin-bottom: 10px;
 }
 
-/* Time display */
 .time-display {
   font-size: 1rem;
   text-align: right;
   margin-bottom: 8px;
 }
 
-/* Progress markers */
-
+/* Here, I have stylied clickable time markers that changes to a different color but in the same hue when hovering or clicking on it */
 .step-markers .marker {
   border: 2px solid #b38494; /* Adds a border around each marker */
   padding: 5px;
@@ -118,7 +124,9 @@ video {
 
 .step-markers .marker:hover {
   border-color: #3c4856; /* Change border color when hovered */
-  background-color: #ebb9ca; /* Optional: Add background color when hovered */
+  background-color: #ebb9ca;
+  /* When hovering on the button, light pink turns into dark pink to let the users know that the button is interactive and is clickable. By changing the color, it also looks more comfortable when the user interacts with it */
+  /* This is also the same for icon buttons and comment buttons, where light purple turns into dark purple. It makes the interface feel more responsive and interactive, which provides visual feedback and enhances user engagement. */
 }
 
 .marker {
@@ -137,7 +145,6 @@ button {
   padding: 10px;
   font-size: 1.2rem;
   color: black;
-  /* color: rgb(202, 151, 122); */
   border-radius: 12px;
 }
 
@@ -154,6 +161,7 @@ button {
   border: double;
   border-radius: 8px;
   cursor: pointer;
+  /* To make it look rounder, instead of sharp to achieve a calm and pleasing feel */
   transition: background-color 0.3s;
 }
 
@@ -161,6 +169,9 @@ button:hover {
   background-color: rgb(177, 158, 226);
   scale: 0.9;
 }
+
+/* I have used w3school to assist me with making an accessible comment section that supports interactivity. It helped me to structure and style form inputs with responsiveness.
+https://www.w3schools.com/html/html_forms.asp */
 
 .comment-section {
   max-width: 600px;
@@ -189,7 +200,6 @@ button:hover {
   margin-top: 4px;
 }
 
-/* Footer at bottom */
 footer {
   text-align: center;
   padding: 15px 10px;
@@ -198,3 +208,4 @@ footer {
   color: #3c4856;
   margin-top: auto;
 }
+/* Footer layout and color is different from the others to make a contrast */
