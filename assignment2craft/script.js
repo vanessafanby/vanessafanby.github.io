@@ -5,8 +5,23 @@ const currentTimeDisplay = document.getElementById("currentTime");
 const totalTimeDisplay = document.getElementById("totalTime");
 const fastForwardButton = document.querySelector("#fast-forward-button");
 const rewindButton = document.querySelector("#rewind-button");
+const playPauseButton = document.querySelector("#play-pause-button");
+const playPauseImg = document.querySelector("#play-pause-img");
+const muteUnmuteButton = document.querySelector("#mute-unmute-button");
+const muteUnmuteImg = document.querySelector("#mute-unmute-img");
+const fullscreenButton = document.querySelector("#fullscreen-button");
+const heartButton = document.querySelector("#heart-button");
+const likesContainer = document.querySelector("#likes");
+const steps = document.querySelectorAll(".step");
+const nextBtn = document.querySelector("#next-button");
+const prevBtn = document.querySelector("#prev-button");
+const commentForm = document.getElementById("commentForm");
+const commentInput = document.getElementById("commentInput");
+const usernameInput = document.getElementById("username");
+const commentsContainer = document.getElementById("commentsContainer");
 
 let currentStep = 0;
+let likes = 0;
 
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
@@ -16,15 +31,8 @@ function formatTime(seconds) {
     .padStart(2, "0")}`;
 }
 
-const playPauseButton = document.querySelector("#play-pause-button");
-console.log(playPauseButton);
-
-playPauseButton.addEventListener("click", togglePlayback);
-
-const playPauseImg = document.querySelector("#play-pause-img");
-console.log(playPauseImg);
-
-function togglePlayback() {
+// Play / Pause
+playPauseButton.addEventListener("click", () => {
   if (video.paused || video.ended) {
     video.play();
     playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/pause--v2.png";
@@ -32,98 +40,50 @@ function togglePlayback() {
     video.pause();
     playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/play--v2.png";
   }
-}
+});
 
-const muteUnmuteButton = document.querySelector("#mute-unmute-button");
-console.log(muteUnmuteButton);
+// Mute / Unmute
+muteUnmuteButton.addEventListener("click", () => {
+  video.muted = !video.muted;
+  muteUnmuteImg.src = video.muted
+    ? "https://img.icons8.com/ios-glyphs/30/no-audio--v1.png"
+    : "https://img.icons8.com/ios-glyphs/30/high-volume--v2.png";
+});
 
-muteUnmuteButton.addEventListener("click", toggleAudio);
-
-const muteUnmuteImg = document.querySelector("#mute-unmute-img");
-console.log(muteUnmuteImg);
-
-function toggleAudio() {
-  if (video.muted) {
-    video.muted = false;
-    muteUnmuteImg.src =
-      "https://img.icons8.com/ios-glyphs/30/high-volume--v2.png";
-  } else {
-    video.muted = true;
-    muteUnmuteImg.src = "https://img.icons8.com/ios-glyphs/30/no-audio--v1.png";
-  }
-}
-
-const fullscreenButton = document.querySelector("#fullscreen-button");
-console.log(fullscreenButton);
-
-fullscreenButton.addEventListener("click", toggleFullscreen);
-
-function toggleFullscreen() {
+// Fullscreen
+fullscreenButton.addEventListener("click", () => {
   if (!document.fullscreenElement) {
     video.requestFullscreen();
   } else {
     document.exitFullscreen();
   }
-}
+});
 
-// Fast Forward Function
+// Fast Forward: 1x > 2x > 3x > 1x
 fastForwardButton.addEventListener("click", () => {
-  if (video.playbackRate === 1.0) {
-    video.playbackRate = 2.0;
-  } else if (video.playbackRate === 2.0) {
-    video.playbackRate = 3.0;
-  } else {
-    video.playbackRate = 1.0;
-  }
+  video.currentTime = Math.min(video.duration, video.currentTime + 5);
 });
 
-// Rewind Function (skip back 5 seconds)
+// Rewind 5 seconds
 rewindButton.addEventListener("click", () => {
-  video.currentTime = Math.max(0, video.currentTime - 5); // rewind 5 seconds
+  video.currentTime = Math.max(0, video.currentTime - 5);
 });
 
-const heartButton = document.querySelector("#heart-button");
-console.log(heartButton);
-
-heartButton.addEventListener("click", updateLikes);
-
-const likesContainer = document.querySelector("#likes");
-let likes = 0;
-
-function updateLikes() {
+// Like Button
+heartButton.addEventListener("click", () => {
   likes++;
   likesContainer.textContent = likes;
-}
+});
 
-const fastForwardButton = document.querySelector("#fast-forward-button");
-console.log(fastForwardButton);
-
-fastForwardButton.addEventListener("click", fastForward);
-
-function fastForward() {
-  if (video.playbackRate === 1.0) {
-    video.playbackRate = 2.0;
-  } else if (video.playbackRate === 2.0) {
-    video.playbackRate = 3.0;
-  } else {
-    video.playbackRate = 1.0;
-  }
-}
-
-// Update current time during video playback
+// Update Time Display
 video.addEventListener("timeupdate", () => {
   currentTimeDisplay.textContent = formatTime(video.currentTime);
-});
 
-// When video metadata loads, set total time
-video.addEventListener("loadedmetadata", () => {
-  totalTimeDisplay.textContent = formatTime(video.duration);
-});
-
-video.addEventListener("timeupdate", () => {
+  // Update progress bar
   const percent = (video.currentTime / video.duration) * 100;
   progressBar.style.width = percent + "%";
 
+  // Highlight current step
   steps.forEach((step, index) => {
     const stepTime = parseFloat(step.dataset.time);
     if (video.currentTime >= stepTime) {
@@ -135,7 +95,12 @@ video.addEventListener("timeupdate", () => {
   });
 });
 
-// Marker click navigation
+// Load Total Time
+video.addEventListener("loadedmetadata", () => {
+  totalTimeDisplay.textContent = formatTime(video.duration);
+});
+
+// Marker Navigation
 markers.forEach((marker) => {
   marker.addEventListener("click", () => {
     const time = parseFloat(marker.dataset.time);
@@ -143,7 +108,7 @@ markers.forEach((marker) => {
   });
 });
 
-// Step click navigation
+// Step Navigation
 steps.forEach((step, index) => {
   step.addEventListener("click", () => {
     const time = parseFloat(step.dataset.time);
@@ -152,7 +117,7 @@ steps.forEach((step, index) => {
   });
 });
 
-// Button navigation
+// Next / Previous Step Buttons
 nextBtn.addEventListener("click", () => {
   if (currentStep < steps.length - 1) {
     currentStep++;
@@ -164,5 +129,24 @@ prevBtn.addEventListener("click", () => {
   if (currentStep > 0) {
     currentStep--;
     video.currentTime = parseFloat(steps[currentStep].dataset.time);
+  }
+});
+
+commentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = usernameInput.value.trim();
+  const text = commentInput.value.trim();
+
+  if (name && text) {
+    const commentDiv = document.createElement("div");
+    commentDiv.classList.add("comment");
+
+    commentDiv.innerHTML = `
+      <div class="name">${name}</div>
+      <div class="text">${text}</div>
+    `;
+
+    commentsContainer.prepend(commentDiv); // show newest at top
+    commentForm.reset();
   }
 });

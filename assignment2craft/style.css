@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
   font-family: "Dosis", sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom, #b8d4f8, #ebb9ca);
+  background: #b8d4f8;
   color: #3c4856;
 }
 
@@ -19,6 +19,12 @@ h1 {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 0;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
 
 /* Main content with internal double border */
@@ -90,17 +96,66 @@ button {
   color: black;
   /* color: rgb(202, 151, 122); */
   border-radius: 12px;
-  background-color: rgb(237, 217, 255);
-}
-
-button:hover {
-  scale: 0.9;
-  background-color: rgb(177, 158, 226);
 }
 
 #likes {
   font-size: 2.2rem;
   color: rgb(168, 55, 55);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgb(237, 217, 255);
+  border: double;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: rgb(177, 158, 226);
+  scale: 0.9;
+}
+
+.comment-section {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fcecef;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#commentInput,
+#username {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.comment {
+  background-color: #fff;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.comment .name {
+  font-weight: bold;
+  color: #3c4856;
+}
+
+.comment .text {
+  margin-top: 4px;
 }
 
 /* Footer at bottom */
