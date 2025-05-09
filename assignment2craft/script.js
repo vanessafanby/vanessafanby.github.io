@@ -1,130 +1,115 @@
-const video = document.getElementById("tutorialVideo");
-const markers = document.querySelectorAll(".marker");
-const currentTimeDisplay = document.getElementById("currentTime");
-const totalTimeDisplay = document.getElementById("totalTime");
-const fastForwardButton = document.querySelector("#fast-forward-button");
-const rewindButton = document.querySelector("#rewind-button");
-const playPauseButton = document.querySelector("#play-pause-button");
-const playPauseImg = document.querySelector("#play-pause-img");
-const muteUnmuteButton = document.querySelector("#mute-unmute-button");
-const muteUnmuteImg = document.querySelector("#mute-unmute-img");
-const fullscreenButton = document.querySelector("#fullscreen-button");
-const heartButton = document.querySelector("#heart-button");
-const likesContainer = document.querySelector("#likes");
-const steps = document.querySelectorAll(".step");
-const nextBtn = document.querySelector("#next-button");
-const prevBtn = document.querySelector("#prev-button");
-const commentForm = document.getElementById("commentForm");
-const commentInput = document.getElementById("commentInput");
-const commentsContainer = document.getElementById("commentsContainer");
+const myVideo = document.getElementById("tutorialVideo");
+console.log(myVideo);
 
-let currentStep = 0;
-let likes = 0;
+myVideo.addEventListener("timeupdate", updateProgress);
 
-function formatTime(seconds) {
-  const mins = Math.floor(seconds / 60);
-  const secs = Math.floor(seconds % 60);
-  return `${mins.toString().padStart(2, "0")}:${secs
-    .toString()
-    .padStart(2, "0")}`;
+function updateProgress() {
+  const duration = (myVideo.currentTime / myVideo.duration) * 100;
+  // progressBar.style.width = duration + "%";  // Removed as per request
 }
 
-// Play / Pause
-playPauseButton.addEventListener("click", () => {
-  if (video.paused || video.ended) {
-    video.play();
+const playPauseButton = document.querySelector("#play-pause-button");
+console.log(playPauseButton);
+
+playPauseButton.addEventListener("click", togglePlayback);
+
+const playPauseImg = document.querySelector("#play-pause-img");
+console.log(playPauseImg);
+
+function togglePlayback() {
+  if (myVideo.paused || myVideo.ended) {
+    myVideo.play();
     playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/pause--v2.png";
   } else {
-    video.pause();
+    myVideo.pause();
     playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/play--v2.png";
   }
+}
+
+const muteUnmuteButton = document.querySelector("#mute-unmute-button");
+console.log(muteUnmuteButton);
+
+muteUnmuteButton.addEventListener("click", toggleAudio);
+
+const muteUnmuteImg = document.querySelector("#mute-unmute-img");
+console.log(muteUnmuteImg);
+
+function toggleAudio() {
+  if (myVideo.muted) {
+    myVideo.muted = false;
+    muteUnmuteImg.src =
+      "https://img.icons8.com/ios-glyphs/30/high-volume--v2.png";
+  } else {
+    myVideo.muted = true;
+    muteUnmuteImg.src = "https://img.icons8.com/ios-glyphs/30/no-audio--v1.png";
+  }
+}
+
+const fastForwardButton = document.querySelector("#fast-forward-button");
+console.log(fastForwardButton);
+
+fastForwardButton.addEventListener("click", () => {
+  myVideo.currentTime = Math.min(myVideo.duration, myVideo.currentTime + 5);
 });
 
-// Mute / Unmute
-muteUnmuteButton.addEventListener("click", () => {
-  video.muted = !video.muted;
-  muteUnmuteImg.src = video.muted
-    ? "https://img.icons8.com/ios-glyphs/30/no-audio--v1.png"
-    : "https://img.icons8.com/ios-glyphs/30/high-volume--v2.png";
+const rewindButton = document.querySelector("#rewind-button");
+console.log(rewindButton);
+
+rewindButton.addEventListener("click", () => {
+  myVideo.currentTime = Math.max(0, myVideo.currentTime - 5);
 });
 
-// Fullscreen
-fullscreenButton.addEventListener("click", () => {
+const fullscreenButton = document.querySelector("#fullscreen-button");
+console.log(fullscreenButton);
+
+fullscreenButton.addEventListener("click", toggleFullscreen);
+
+function toggleFullscreen() {
   if (!document.fullscreenElement) {
-    video.requestFullscreen();
+    myVideo.requestFullscreen();
   } else {
     document.exitFullscreen();
   }
-});
+}
 
-// Fast Forward 5 secs
-fastForwardButton.addEventListener("click", () => {
-  video.currentTime = Math.min(video.duration, video.currentTime + 5);
-});
+const heartButton = document.querySelector("#heart-button");
+console.log(heartButton);
 
-// Rewind 5 seconds
-rewindButton.addEventListener("click", () => {
-  video.currentTime = Math.max(0, video.currentTime - 5);
-});
+heartButton.addEventListener("click", updateLikes);
 
-// Like Button
-heartButton.addEventListener("click", () => {
+const likesContainer = document.querySelector("#likes");
+let likes = 0;
+
+function updateLikes() {
   likes++;
   likesContainer.textContent = likes;
-});
+}
 
-// Update Time Display
-video.addEventListener("timeupdate", () => {
-  currentTimeDisplay.textContent = formatTime(video.currentTime);
+const markers = document.querySelectorAll(".marker");
+console.log(markers);
 
-  // Highlight current step
-  steps.forEach((step, index) => {
-    const stepTime = parseFloat(step.dataset.time);
-    if (video.currentTime >= stepTime) {
-      step.classList.add("active");
-      currentStep = index;
-    } else {
-      step.classList.remove("active");
-    }
-  });
-});
-
-// Load Total Time
-video.addEventListener("loadedmetadata", () => {
-  totalTimeDisplay.textContent = formatTime(video.duration);
-});
-
-// Marker Navigation
 markers.forEach((marker) => {
   marker.addEventListener("click", () => {
     const time = parseFloat(marker.dataset.time);
-    video.currentTime = time;
+    myVideo.currentTime = time;
   });
 });
 
-// Step Navigation
+const steps = document.querySelectorAll(".step");
+console.log(steps);
+
 steps.forEach((step, index) => {
   step.addEventListener("click", () => {
     const time = parseFloat(step.dataset.time);
-    video.currentTime = time;
-    currentStep = index;
+    myVideo.currentTime = time;
   });
 });
 
-// Next / Previous Step Buttons
-nextBtn.addEventListener("click", () => {
-  if (currentStep < steps.length - 1) {
-    currentStep++;
-    video.currentTime = parseFloat(steps[currentStep].dataset.time);
-  }
-});
+let currentStep = 0; // Declare currentStep before it's used
 
-prevBtn.addEventListener("click", () => {
-  if (currentStep > 0) {
-    currentStep--;
-    video.currentTime = parseFloat(steps[currentStep].dataset.time);
-  }
-});
+const commentForm = document.getElementById("commentForm");
+const commentInput = document.getElementById("commentInput");
+const commentsContainer = document.getElementById("commentsContainer");
 
 commentForm.addEventListener("submit", (e) => {
   e.preventDefault();

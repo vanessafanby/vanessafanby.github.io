@@ -7,6 +7,40 @@ body {
   margin: 0;
   background: #b8d4f8;
   color: #3c4856;
+  text-align: center;
+}
+
+.materials-list {
+  list-style-type: disc;
+  font-size: 18px;
+  padding-left: 40px;
+  margin: 0;
+  width: auto;
+  text-align: left;
+}
+
+.instructions-list {
+  list-style-type: decimal;
+  font-size: 18px;
+  padding-left: 40px;
+  text-align: left;
+}
+
+.instruction-box {
+  background: linear-gradient(to bottom, #fffbe6, #ffe6f0);
+  border: double 5px #ccc;
+  padding: 20px;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.materials-list,
+.instructions-list {
+  font-size: 18px;
+  padding-left: 40px;
+  text-align: left;
 }
 
 /* Header styling */
@@ -19,6 +53,11 @@ h1 {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 0;
+}
+
+h2 {
+  text-align: left;
+  padding: 20px 10px;
 }
 
 html,
@@ -68,14 +107,18 @@ video {
 }
 
 /* Progress markers */
-.step-markers {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  color: #3c4856;
-  margin-top: 6px;
-  flex-wrap: wrap;
-  gap: 6px;
+
+.step-markers .marker {
+  border: 2px solid #b38494; /* Adds a border around each marker */
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px; /* Optional: Makes the corners of the border rounded */
+  text-align: center;
+}
+
+.step-markers .marker:hover {
+  border-color: #3c4856; /* Change border color when hovered */
+  background-color: #ebb9ca; /* Optional: Add background color when hovered */
 }
 
 .marker {
@@ -134,24 +177,12 @@ button:hover {
 }
 
 #commentInput,
-#username {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
 .comment {
   background-color: #fff;
   margin-top: 15px;
   padding: 10px;
   border-radius: 8px;
   position: relative;
-}
-
-.comment .name {
-  font-weight: bold;
-  color: #3c4856;
 }
 
 .comment .text {
@@ -162,7 +193,7 @@ button:hover {
 footer {
   text-align: center;
   padding: 15px 10px;
-  background-color: #ddb8e2;
+  background-color: #a7b7e4;
   font-size: 0.85rem;
   color: #3c4856;
   margin-top: auto;
