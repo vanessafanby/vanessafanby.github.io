@@ -1,5 +1,4 @@
 const video = document.getElementById("tutorialVideo");
-const progressBar = document.getElementById("progressBar");
 const markers = document.querySelectorAll(".marker");
 const currentTimeDisplay = document.getElementById("currentTime");
 const totalTimeDisplay = document.getElementById("totalTime");
@@ -17,7 +16,6 @@ const nextBtn = document.querySelector("#next-button");
 const prevBtn = document.querySelector("#prev-button");
 const commentForm = document.getElementById("commentForm");
 const commentInput = document.getElementById("commentInput");
-const usernameInput = document.getElementById("username");
 const commentsContainer = document.getElementById("commentsContainer");
 
 let currentStep = 0;
@@ -59,7 +57,7 @@ fullscreenButton.addEventListener("click", () => {
   }
 });
 
-// Fast Forward: 1x > 2x > 3x > 1x
+// Fast Forward 5 secs
 fastForwardButton.addEventListener("click", () => {
   video.currentTime = Math.min(video.duration, video.currentTime + 5);
 });
@@ -78,10 +76,6 @@ heartButton.addEventListener("click", () => {
 // Update Time Display
 video.addEventListener("timeupdate", () => {
   currentTimeDisplay.textContent = formatTime(video.currentTime);
-
-  // Update progress bar
-  const percent = (video.currentTime / video.duration) * 100;
-  progressBar.style.width = percent + "%";
 
   // Highlight current step
   steps.forEach((step, index) => {
@@ -134,19 +128,17 @@ prevBtn.addEventListener("click", () => {
 
 commentForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = usernameInput.value.trim();
   const text = commentInput.value.trim();
 
-  if (name && text) {
+  if (text) {
     const commentDiv = document.createElement("div");
     commentDiv.classList.add("comment");
 
     commentDiv.innerHTML = `
-      <div class="name">${name}</div>
       <div class="text">${text}</div>
     `;
 
-    commentsContainer.prepend(commentDiv); // show newest at top
+    commentsContainer.prepend(commentDiv); // Show newest comment on top
     commentForm.reset();
   }
 });
