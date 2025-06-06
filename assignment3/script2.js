@@ -15,14 +15,11 @@ const characterName = document.querySelector("#character-name");
  * @type {{name: string, img: string}[]}
  */
 const characters = [
-  { name: "Hello Kitty", img: "assets/characters/Hello Kitty.png" },
-  { name: "My Melody", img: "assets/characters/My Melody.png" },
-  { name: "Kuromi", img: "assets/characters/Kuromi.png" },
-  { name: "Cinnamoroll", img: "assets/characters/Cinnamoroll.png" },
-  { name: "Pompompurin", img: "assets/characters/Pompompurin.png" },
-  { name: "Pochacco", img: "assets/characters/Pochacco.png" },
-  { name: "Badtz-Maru", img: "assets/characters/Badtz-Maru.png" },
-  { name: "Keroppi", img: "assets/characters/Keroppi.png" },
+  { name: "Furry Bear", img: "assets/characters/bear.png" },
+  { name: "Little Meow", img: "assets/characters/cat.png" },
+  { name: "Bamboo Panda", img: "assets/characters/panda.png" },
+  { name: "Roar Tiger", img: "assets/characters/tiger.png" },
+  { name: "Rainbow Unicorn", img: "assets/characters/unicorn.png" },
 ];
 
 /**

@@ -31,30 +31,23 @@ const idMap = {
  */
 const accessories = {
   headwear: [
-    "assets/accessories/headwear/hat1.png",
-    "assets/accessories/headwear/hat2.png",
-    "assets/accessories/headwear/hat3.png",
-    "assets/accessories/headwear/hat4.png",
-    "assets/accessories/headwear/hat5.png",
-    "assets/accessories/headwear/6.png",
-    "assets/accessories/headwear/7.png",
-    "assets/accessories/headwear/8.png",
-    "assets/accessories/headwear/9.png",
-    "assets/accessories/headwear/10.png",
+    "assets/accessories/headwear/beanie.png",
+    "assets/accessories/headwear/bow.png",
+    "assets/accessories/headwear/crown.png",
+    "assets/accessories/headwear/hairclip.png",
+    "assets/accessories/headwear/hat.png",
+    "assets/accessories/headwear/sunhat.png",
   ],
   neckwear: [
-    "assets/accessories/neckwear/1.png",
-    "assets/accessories/neckwear/2.png",
-    "assets/accessories/neckwear/3.png",
-    "assets/accessories/neckwear/4.png",
-    "assets/accessories/neckwear/5.png",
+    "assets/accessories/neckwear/necklaceheart.png",
+    "assets/accessories/neckwear/necklace.png",
   ],
   decoration: [
-    "assets/accessories/decoration/1.png",
-    "assets/accessories/decoration/2.png",
-    "assets/accessories/decoration/3.png",
-    "assets/accessories/decoration/4.png",
-    "assets/accessories/decoration/5.png",
+    "assets/accessories/decoration/handbag.png",
+    "assets/accessories/decoration/mic.png",
+    "assets/accessories/decoration/scarf.png",
+    "assets/accessories/decoration/sunglasses.png",
+    "assets/accessories/decoration/teddybear.png",
   ],
 };
 
