@@ -1,0 +1,414 @@
+body {
+  font-family: 'Fredoka', 'Quicksand', sans-serif;
+  font-size: x-large;
+  color: #5c4a4a;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the background for all the pages */
+
+body.page-start {
+  background-image: url('assets/background/bg_start.png');
+}
+
+body.page-select {
+  background-image: url('assets/background/character_page_bg.png');
+}
+
+body.page-dressup {
+  background-image: url('assets/background/bg_start.png');
+}
+
+
+body.page-start,
+body.page-select,
+body.page-dressup {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Styles for Homepage  */
+
+/* Floating Feature */
+
+#floating-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  gap: 0px; 
+}
+
+.floating-left {
+  width: 400px;
+  height: 240px;
+  margin-right: 50px; 
+  margin-top:400px;
+  position: relative; 
+  z-index: 3;
+}
+
+.floating-middle {
+  width: 800px;
+  height:640px;
+  margin-left: -280px;
+  margin-right: 300px;
+  margin-top:-70px;
+  position: relative; 
+  z-index: 2;
+}
+
+.floating-right {
+  width: 250px;
+  height: 344px;
+  margin-left: -400px;
+  margin-top:300px;
+  position: relative; 
+  z-index: 3;
+}
+
+.title-image {
+  width: 950px;  
+  height: 350px; 
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: 5;       
+}
+
+/* Mousing Sparking Feature */
+.sparkle {
+  position: absolute;
+  width: 30px;
+  pointer-events: none;
+  animation: sparkle-fade 2s ease-out forwards;
+  z-index: 1000;
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+
+/* Start Button */
+
+.start-button-wrapper {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+#start-button {
+  padding: 10px 24px;
+  font-size: 16px;
+  background-color: #fda4b5;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  transform-origin: center center;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 20px;
+  color: whitesmoke;
+}
+
+/* Click Animation for the Button */
+#start-button.clicked {
+  animation: bounce 0.4s ease;
+}
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.2); }
+  60%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Other Buttons */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #ffc0cb;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 20px;
+  color: #5c4a4a;
+}
+
+button:hover {
+  background-color: #ff99cc;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffc0cb;
+} 
+
+/* Character Page */
+
+/* Title Image */
+.title-wrapper {
+  text-align: center;
+  margin: 20px auto;
+  
+}
+
+.select_title-image {
+  width: 600px;  
+  height:auto;
+  margin-top:30px;
+}
+
+
+.carousel {
+  margin-top: -70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.character-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.character-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+#character-preview {
+  width: 500px;         
+  height: auto;        
+  margin: -30px;
+  transition: transform 0.3s ease;
+}
+
+
+
+/* Left&Right Arrow Image */
+.arrow-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 50px 20px;
+}
+
+.arrow-button img {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.2s ease;
+}
+
+.arrow-button img:hover {
+  transform: scale(1.1);
+}
+
+.arrow-button:hover {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#character-name {
+  font-size: 30px;
+  margin-top: -10px;
+  color: #796365;
+  text-shadow: 1px 1px 2px #00000030;
+}
+
+
+
+/* Dressup Page */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Character Display on the left */
+.character-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mirror-frame {
+  position: relative;
+  width: 735px;
+  height: 700px;
+}
+
+.mirror-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  left: 0;
+}
+
+.character-layer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.character-layer img {
+  position: absolute;
+  object-fit: contain;
+  pointer-events: auto;
+  cursor: grab;
+  z-index: 10;
+}
+
+.mirror-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  gap: 16px;
+  margin-top: 0px;
+}
+
+
+
+/* Accessory Selection on the right */
+.accessory-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.accessory-box {
+  width: 100%;
+  padding: 0px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(241, 153, 166, 0.4);
+  box-shadow: 0 2px 8px rgba(121, 99, 101, 0.7);
+  text-align: center;
+}
+
+.accessory-box h3 {
+  font-size: 23px;
+  margin-bottom: 5px;
+  color: #796365;
+  text-shadow: 1px 1px 2px #00000030;
+}
+
+.accessory-box button {
+  background: none;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.accessory-box button img {
+  width: 80px;
+  height: auto;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+.accessory-box button img:hover {
+  transform: scale(1.1);
+}
+
+.item-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Dressup Layer */
+.character-base {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  object-fit: contain;
+}
+
+#headwear-layer,
+#neckwear-layer,
+#decoration-layer {
+  position: absolute;
+  top: 0px;      
+  left: 0px;
+  z-index: 10;
+  cursor: grab;
+  pointer-events: auto;
+}
+
+#headwear-layer {
+  width: 250px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  cursor: grab;
+  z-index: 10;
+}
+
+#neckwear-layer {
+  width: 80px;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  cursor: grab;
+  z-index: 10;
+}
+
+#decoration-layer {
+  width: 160px;
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  cursor: grab;
+  z-index: 10;
+}
+
+/* Change character background */
+.bg-switch-buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.bg-switch-buttons button {
+  padding: 6px 16px;
+  background-color: #f7a7bb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bg-switch-buttons button:hover {
+  background-color: #f985a3;
+}
