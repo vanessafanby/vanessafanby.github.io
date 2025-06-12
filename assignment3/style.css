@@ -330,7 +330,8 @@ button:hover {
 
 .accessory-box button img {
   width: 80px;
-  height: auto;
+/*   height: auto; */
+  height: 80px;
   border-radius: 6px;
   transition: transform 0.2s;
 }
