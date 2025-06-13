@@ -6,29 +6,20 @@ function setMirrorBackground(src) {
     localStorage.setItem("mirror-background", src);
   }
 }
-
-/**
- * Load base character from localStorage
- */
+// Seamless character continuity from selection screen
+//  * This restores the previously selected character, maintaining user context
+//  * and eliminating the need to re-select characters when returning to the game
 const characterData = JSON.parse(localStorage.getItem("selectedCharacter"));
 if (characterData) {
   document.getElementById("base-character").src = characterData.img;
 }
 
-/**
- * Maps accessory types to image layer IDs.
- * @type {Object.<string, string>}
- */
 const idMap = {
   headwear: "headwear-layer",
   neckwear: "neckwear-layer",
   decoration: "decoration-layer",
 };
 
-/**
- * Image paths for accessories in each category
- * @type {Object.<string, string[]>}
- */
 const accessories = {
   headwear: [
     "assets/accessories/headwear/beanie.png",
@@ -53,9 +44,6 @@ const accessories = {
   ],
 };
 
-/**
- * Create accessory buttons and bind click handlers.
- */
 for (const type in accessories) {
   const container = document.getElementById(`${type}-container`);
   accessories[type].forEach((imgPath) => {
@@ -74,11 +62,6 @@ for (const type in accessories) {
   container.appendChild(removeBtn);
 }
 
-/**
- * Updates accessory layer and saves to localStorage
- * @param {string} type
- * @param {string} src
- */
 const changeDecoration = (type, src) => {
   const layerId = idMap[type];
   const layer = document.getElementById(layerId);
@@ -86,9 +69,6 @@ const changeDecoration = (type, src) => {
   localStorage.setItem(`${type}-accessory`, src);
 };
 
-/**
- * Restore previous accessories and their drag positions
- */
 for (const type in idMap) {
   const layer = document.getElementById(idMap[type]);
   const savedSrc = localStorage.getItem(`${type}-accessory`);
@@ -108,9 +88,6 @@ for (const type in idMap) {
  * Enables drag-and-drop functionality for a given element.
  * Keeps the element inside its parent container while dragging.
  * Saves the final position to localStorage when dropped.
- *
- * @param {HTMLElement} element - The element to be made draggable
- * @param {string} type - The accessory type (used for localStorage key)
  */
 function makeDraggable(element, type) {
   let isDragging = false;
@@ -173,3 +150,4 @@ function makeDraggable(element, type) {
     }
   });
 }
+// My dress-up game evolved from click-based to drag-and-drop interactions after receiving feedback about positioning difficulties during my presentation. This change directly addressed users' struggles with precise accessory placement, making the interface more intuitive by mimicking physical item placement.
