@@ -2,40 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Select Character</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Choose Your Character</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Fredoka&family=Quicksand&family=Cherry+Bomb+One&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body class="page-select">
-    <!-- ✅ 用图片替换文字标题 -->
-    <div class="title-wrapper">
-      <img
-        src="assets/select_page_title.png"
-        alt="Select Your Character"
-        class="select_title-image"
-      />
+    <div class="character-container">
+      <h1 class="select-title">Choose Your Character</h1>
+
+      <div class="character-preview-wrapper">
+        <button id="prev-button" class="arrow-button">
+          <img src="assets/left_arrow.png" alt="Previous" />
+        </button>
+
+        <img id="character-preview" src="" alt="Character Preview" />
+
+        <button id="next-button" class="arrow-button">
+          <img src="assets/right_arrow.png" alt="Next" />
+        </button>
+      </div>
+
+      <p id="character-name">Character Name</p>
+      <button id="confirm-button">Confirm</button>
     </div>
-
-    <div class="carousel">
-      <!-- ✅ 左箭头图像按钮 -->
-      <button id="prev-button" class="arrow-button">
-        <img src="assets/left_arrow.png" alt="Previous" />
-      </button>
-
-      <!-- ✅ 角色预览图像（保持你原来设置的宽度） -->
-      <img id="character-preview" src="" alt="Character Preview" />
-
-      <!-- ✅ 右箭头图像按钮 -->
-      <button id="next-button" class="arrow-button">
-        <img src="assets/right_arrow.png" alt="Next" />
-      </button>
-    </div>
-
-    <p id="character-name">Character Name</p>
-    <button id="confirm-button">Confirm</button>
 
     <script src="script2.js"></script>
   </body>

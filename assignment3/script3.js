@@ -35,12 +35,14 @@ const accessories = {
     "assets/accessories/headwear/bow.png",
     "assets/accessories/headwear/crown.png",
     "assets/accessories/headwear/hairclip.png",
-    "assets/accessories/headwear/hat.png",
     "assets/accessories/headwear/sunhat.png",
   ],
   neckwear: [
     "assets/accessories/neckwear/necklaceheart.png",
     "assets/accessories/neckwear/necklace.png",
+    "assets/accessories/neckwear/collar.png",
+    "assets/accessories/neckwear/winter.png",
+    "assets/accessories/neckwear/tie.png",
   ],
   decoration: [
     "assets/accessories/decoration/handbag.png",
@@ -171,34 +173,3 @@ function makeDraggable(element, type) {
     }
   });
 }
-
-/**
- * Set the current mirror background and store it
- * @param {string} src
- */
-const setMirrorBackground = (src) => {
-  const bg = document.getElementById("mirror-bg");
-  if (bg) {
-    bg.src = src;
-    localStorage.setItem("mirror-background", src);
-  }
-};
-
-/**
- * Capture the current styled mirror and download as PNG
- */
-const saveSnapshot = () => {
-  const target = document.querySelector(".mirror-frame");
-  if (!target) return;
-
-  html2canvas(target, {
-    useCORS: true,
-    backgroundColor: null,
-    scale: 2,
-  }).then((canvas) => {
-    const link = document.createElement("a");
-    link.download = "my-character-look.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-  });
-};
