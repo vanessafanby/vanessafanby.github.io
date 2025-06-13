@@ -1,10 +1,10 @@
-/**
- * Restore background image from localStorage
- */
-const savedBg = localStorage.getItem("mirror-background");
-if (savedBg) {
-  const bg = document.getElementById("mirror-bg");
-  if (bg) bg.src = savedBg;
+function setMirrorBackground(src) {
+  const mirrorBg = document.getElementById("mirror-bg");
+
+  if (mirrorBg) {
+    mirrorBg.src = src;
+    localStorage.setItem("mirror-background", src);
+  }
 }
 
 /**

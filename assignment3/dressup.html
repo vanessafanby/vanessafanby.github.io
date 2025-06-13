@@ -1,68 +1,67 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Dress Up</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Font imports -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Fredoka&family=Quicksand&family=Cherry+Bomb+One&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <title>Dress Up</title>
+  <link rel="stylesheet" href="style.css" />
 
-  <body class="page-dressup">
-    <div class="container">
-      <!-- Left side: character display area -->
-      <div class="character-section">
-        <div class="mirror-wrapper">
-          <div class="mirror-frame">
-            <!-- Background image -->
-            <img
-              src="assets/background/title_page.png"
-              class="mirror-bg"
-              id="mirror-bg"
-            />
+  <!-- Screenshot utility -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-            <!-- Character and accessory layers -->
-            <div class="character-layer">
-              <img id="base-character" class="character-base" />
-              <img id="headwear-layer" class="clothing-layer" />
-              <img id="neckwear-layer" class="clothing-layer" />
-              <img id="decoration-layer" class="clothing-layer" />
-            </div>
+  <!-- Font imports -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Fredoka&family=Quicksand&family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-dressup">
+  <div class="container">
+  
+    <!-- Left side: character display area -->
+    <div class="character-section">
+      <div class="mirror-wrapper">
+        <div class="mirror-frame">
+
+          <!-- Background image -->
+          <img src="assets/background/dressup_bg.png" class="mirror-bg" id="mirror-bg" />
+
+          <!-- Character and accessory layers -->
+          <div class="character-layer">
+            <img id="base-character" class="character-base" />
+            <img id="headwear-layer" class="clothing-layer" />
+            <img id="neckwear-layer" class="clothing-layer" />
+            <img id="decoration-layer" class="clothing-layer" />
           </div>
-        </div>
-      </div>
 
-      <!-- Right side: accessory selection area -->
-      <div class="accessory-section">
-        <div
-          class="accessory-box"
-          style="background-image: url('assets/bg/headwear_bg.png')"
-        >
-          <h3>Headwear</h3>
-          <div class="item-row" id="headwear-container"></div>
-        </div>
+          <!-- Background switch buttons -->
+          <div class="bg-switch-buttons">
+            <button onclick="setMirrorBackground('assets/background/beach.png')">Beach</button>
+            <button onclick="setMirrorBackground('assets/background/garden.png')">Garden</button>
+            <button onclick="setMirrorBackground('assets/background/room.png')">Room</button>
+            <button onclick="setMirrorBackground('assets/background/dressup_bg.png')">No Background</button>
+          </div>
 
-        <div
-          class="accessory-box"
-          style="background-image: url('assets/bg/neckwear_bg.png')"
-        >
-          <h3>Neckwear</h3>
-          <div class="item-row" id="neckwear-container"></div>
-        </div>
-
-        <div
-          class="accessory-box"
-          style="background-image: url('assets/bg/decoration_bg.png')"
-        >
-          <h3>Decoration</h3>
-          <div class="item-row" id="decoration-container"></div>
         </div>
       </div>
     </div>
 
-    <script src="script3.js"></script>
-  </body>
+    <!-- Right side: accessory selection area -->
+    <div class="accessory-section">
+
+      <div class="accessory-box" style="background-image: url('assets/bg/headwear_bg.png')">
+        <h3>Headwear</h3>
+        <div class="item-row" id="headwear-container"></div>
+      </div>
+
+      <div class="accessory-box" style="background-image: url('assets/bg/neckwear_bg.png')">
+        <h3>Neckwear</h3>
+        <div class="item-row" id="neckwear-container"></div>
+      </div>
+
+      <div class="accessory-box" style="background-image: url('assets/bg/decoration_bg.png')">
+        <h3>Decoration</h3>
+        <div class="item-row" id="decoration-container"></div>
+      </div>
+
+
+  <script src="script3.js"></script>
+</body>
 </html>
