@@ -22,10 +22,6 @@ const characters = [
   { name: "Rainbow Unicorn", img: "assets/characters/unicorn.png" },
 ];
 
-/**
- * The index of the character currently being shown.
- * @type {number}
- */
 let current = 0;
 
 /**
@@ -63,5 +59,5 @@ document.querySelector("#confirm-button").addEventListener("click", () => {
   window.location.href = "dressup.html";
 });
 
-// Initialize preview on page load
 updatePreview();
+// I wrote this character selection script to create a smooth, carousel-style browsing experience that lets users cycle through available characters before committing to their choice. The circular navigation logic using modulo operations ensures users can seamlessly browse in both directions without hitting dead ends, which improves the overall user experience. I implemented immediate visual feedback through the `updatePreview()` function so users can see both the character image and name change instantly as they navigate. The localStorage persistence ensures the selected character carries over to the dress-up page, maintaining continuity between the selection and customization phases. This approach separates the character choice from the dress-up functionality, allowing me to focus each interface on its specific purpose while creating a clear, logical user flow. The simple array-based data structure makes it easy to add new characters in the future without restructuring the navigation logic.
