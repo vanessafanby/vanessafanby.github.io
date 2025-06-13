@@ -10,6 +10,7 @@ body.page-start {
   justify-content: center;
   align-items: center;
 }
+/* Mainly targeting to younger audience, I choose a font that looks round and calm instead of sharp ones to look more nicer. I choose a pink theme since I thought that it'll match better with the combination of characters, background, and decorations */
 
 .game-title {
   font-size: 48px;
@@ -17,7 +18,6 @@ body.page-start {
   color: #333;
 }
 
-/* Start Button */
 #start-button {
   padding: 15px 40px;
   font-size: 20px;
@@ -29,7 +29,7 @@ body.page-start {
   color: white;
   transition: background-color 0.3s;
 }
-
+/* The padding and font size help make the button large and comfortable to click. I also choose to use rounded borders to make it look softer and align with cartoon style. I choose pink as the main color since I wanted the user to feel energetic and cheerful when playing the game.  */
 .start-button-wrapper {
   position: absolute;
   bottom: 7%;
@@ -41,8 +41,7 @@ body.page-start {
 #start-button:hover {
   background-color: #f97bb5;
 }
-
-/* === CHARACTER SELECT PAGE === */
+/* The hover effect, where i choose a slightly darker pink, offers a visual feedback to let players know that it is an interactive and responsive, that can bring them to the next page.  */
 
 body.page-select {
   margin: 0;
@@ -66,6 +65,7 @@ body.page-select {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
+/* I made the character container into round borders with box shadow to create a soft and calming appearance. Furthermore, I used a slightly transparent background a little see through with the original background to it look more visually appealling.  */
 
 .select-title {
   font-family: "Cherry Bomb One", cursive;
@@ -74,7 +74,6 @@ body.page-select {
   color: #5c4a4a;
 }
 
-/* Layout of arrows + character image */
 .character-preview-wrapper {
   display: flex;
   align-items: center;
@@ -82,6 +81,7 @@ body.page-select {
   gap: 16px;
   margin-bottom: 20px;
 }
+/* I wanted to make the arrows and character preview side by side, to make the player navigate easier through their choices. Furthermore, I made the alignment and gap a comfortable and well-separated view for both the arrows and the character preview. */
 
 .arrow-button {
   background: none;
@@ -99,8 +99,8 @@ body.page-select {
 .arrow-button img:hover {
   transform: scale(1.1);
 }
+/* The hover transform ‘scaling up’, — signals to the user that the arrows are interactive */
 
-/* Character preview image */
 #character-preview {
   width: 180px;
   height: auto;
@@ -109,15 +109,14 @@ body.page-select {
   transition: transform 0.3s ease;
 }
 
-/* Character name */
 #character-name {
   font-size: 20px;
   margin-top: 2=16px;
   color: #796365;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
 }
+/* I made the character’s name bold, displayed underneath their preview. I also used dark text colours to portray a clear constrast against the lighter background */
 
-/* Confirm button */
 #confirm-button {
   padding: 10px 28px;
   font-size: 16px;
@@ -142,10 +141,8 @@ body {
   padding: 0;
 }
 
-/* Set the background for all the pages */
-
 body.page-dressup {
-  background-image: url("assets/background/title_page.png");
+  background-image: url("assets/background/bg_start.png");
 }
 
 /* Other Buttons */
@@ -169,7 +166,6 @@ button:hover {
   box-shadow: 0 0 10px #ffc0cb;
 }
 
-/* Title Image */
 .title-wrapper {
   text-align: center;
   margin: 20px auto;
@@ -345,11 +341,11 @@ button:hover {
 
 /* Dressup Layer */
 .page-dressup .container {
-  width: 1440px; /* or any fixed width you prefer */
-  height: 900px; /* fixed height */
-  margin: 0 auto; /* center horizontally */
-  position: relative; /* allows absolutely positioned children */
-  overflow: hidden; /* hides overflow if needed */
+  width: 1440px;
+  height: 900px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .character-base {
