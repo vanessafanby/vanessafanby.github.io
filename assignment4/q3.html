@@ -16,6 +16,7 @@
     data-src="videos/q3.mp4"
     data-correct="ai"
     data-next="q4.html"
+    data-prev="q2.html"
     data-progress="50"
     data-fb-ai-ok="WELL DONE! The voice has a steady timbre while the mouth movement is uneven."
     data-fb-ai-no="WRONG! This is AI-generated — the audio and mouth movement don’t align perfectly."
@@ -42,7 +43,23 @@
         <div id="feedback" class="feedback"></div>
       </section>
 
-      <button id="nextBtn" class="fab-next" disabled>➜</button>
+      <button
+        id="prevBtn"
+        class="fab fab-prev"
+        title="Previous"
+        aria-label="Previous"
+      >
+        ←
+      </button>
+      <button
+        id="nextBtn"
+        class="fab fab-next"
+        title="Next"
+        aria-label="Next"
+        disabled
+      >
+        ➜
+      </button>
 
       <div class="progress">
         <div id="progressBar" class="progress-bar"></div>

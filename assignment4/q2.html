@@ -16,6 +16,7 @@
     data-src="videos/q2.mp4"
     data-correct="real"
     data-next="q3.html"
+    data-prev="q1.html"
     data-progress="25"
     data-fb-ai-ok="If you chose AI: compare how smoothly expressions transition in real clips."
     data-fb-ai-no="NOT QUITE… This is a real video. Notice the smoothness of facial expressions."
@@ -42,7 +43,23 @@
         <div id="feedback" class="feedback"></div>
       </section>
 
-      <button id="nextBtn" class="fab-next" disabled>➜</button>
+      <button
+        id="prevBtn"
+        class="fab fab-prev"
+        title="Previous"
+        aria-label="Previous"
+      >
+        ←
+      </button>
+      <button
+        id="nextBtn"
+        class="fab fab-next"
+        title="Next"
+        aria-label="Next"
+        disabled
+      >
+        ➜
+      </button>
 
       <div class="progress">
         <div id="progressBar" class="progress-bar"></div>

@@ -16,6 +16,7 @@
     data-src="videos/q4.mp4"
     data-correct="ai"
     data-next="q5.html"
+    data-prev="q3.html"
     data-progress="75"
     data-fb-ai-ok="CORRECT! The eyes and blinking look unnatural — AI often gets micro-expressions wrong."
     data-fb-ai-no="INCORRECT! This is AI-generated — the eyes don’t focus naturally and blink at irregular intervals."
@@ -42,7 +43,23 @@
         <div id="feedback" class="feedback"></div>
       </section>
 
-      <button id="nextBtn" class="fab-next" disabled>➜</button>
+      <button
+        id="prevBtn"
+        class="fab fab-prev"
+        title="Previous"
+        aria-label="Previous"
+      >
+        ←
+      </button>
+      <button
+        id="nextBtn"
+        class="fab fab-next"
+        title="Next"
+        aria-label="Next"
+        disabled
+      >
+        ➜
+      </button>
 
       <div class="progress">
         <div id="progressBar" class="progress-bar"></div>

@@ -16,6 +16,7 @@
     data-src="videos/q1.mp4"
     data-correct="ai"
     data-next="q2.html"
+    data-prev=""
     data-progress="0"
     data-fb-ai-ok="WELL SPOTTED! The voice doesn’t match the mouth movements perfectly — a common deepfake problem."
     data-fb-ai-no="INCORRECT. This is a deepfake — the lip-syncing isn’t consistent with the audio."
@@ -42,7 +43,23 @@
         <div id="feedback" class="feedback"></div>
       </section>
 
-      <button id="nextBtn" class="fab-next" disabled>➜</button>
+      <button
+        id="prevBtn"
+        class="fab fab-prev"
+        title="Previous"
+        aria-label="Previous"
+      >
+        ←
+      </button>
+      <button
+        id="nextBtn"
+        class="fab fab-next"
+        title="Next"
+        aria-label="Next"
+        disabled
+      >
+        ➜
+      </button>
 
       <div class="progress">
         <div id="progressBar" class="progress-bar"></div>

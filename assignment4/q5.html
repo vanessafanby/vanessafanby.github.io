@@ -16,6 +16,8 @@
     data-src="videos/q5.mp4"
     data-correct="real"
     data-next=""
+    data-prev="q4.html"
+    data-results="results.html"
     data-progress="100"
     data-fb-ai-ok="If you chose AI: notice how the background and face move together naturally in real clips."
     data-fb-ai-no="INCORRECT. This clip is real. Unlike deepfakes, the mouth, eyes, and audio all sync naturally here."
@@ -42,7 +44,16 @@
         <div id="feedback" class="feedback"></div>
       </section>
 
-      <!-- No next button on last page -->
+      <button
+        id="prevBtn"
+        class="fab fab-prev"
+        title="Previous"
+        aria-label="Previous"
+      >
+        ←
+      </button>
+      <!-- No Next button on the last page; a star (★) will appear after answering to go to results -->
+
       <div class="progress">
         <div id="progressBar" class="progress-bar"></div>
       </div>

@@ -42,7 +42,7 @@ body {
 
 .container {
   max-width: 960px;
-  margin: 24px auto 80px;
+  margin: 24px auto 96px;
   padding: 0 16px;
   position: relative;
 }
@@ -124,10 +124,10 @@ body {
   color: #5b1200;
 }
 
-.fab-next {
+.fab {
   position: fixed;
-  right: 22px;
   bottom: 22px;
+  z-index: 10;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -139,15 +139,22 @@ body {
   cursor: pointer;
   transition: transform 0.1s, background 0.2s, opacity 0.2s;
 }
-.fab-next:hover {
+.fab:hover {
   background: #2e3947;
 }
-.fab-next:disabled {
+.fab:active {
+  transform: translateY(1px);
+}
+.fab:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
-.fab-next:active {
-  transform: translateY(1px);
+
+.fab-prev {
+  left: 22px;
+}
+.fab-next {
+  right: 22px;
 }
 
 .progress {
@@ -186,6 +193,10 @@ body {
 @media (max-width: 640px) {
   .choices {
     grid-template-columns: 1fr;
+  }
+  .fab-prev {
+    left: 16px;
+    bottom: 16px;
   }
   .fab-next {
     right: 16px;
