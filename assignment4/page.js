@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
     src: body.dataset.src,
     correct: body.dataset.correct, // "ai" or "real"
     head: body.dataset.head || "Is this video real or AI-generated?",
-    next: body.dataset.next || "", // q2.html, etc. leave blank on last page
+    next: body.dataset.next || "",
+    progress: parseFloat(body.dataset.progress || "0"),
     fbAiOk: body.dataset.fbAiOk || "",
     fbAiNo: body.dataset.fbAiNo || "",
     fbRealOk: body.dataset.fbRealOk || "",
     fbRealNo: body.dataset.fbRealNo || "",
-    progress: parseFloat(body.dataset.progress || "0"), // 0-100
   };
 
   const titleEl = document.querySelector(".title");
@@ -24,9 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   titleEl.textContent = cfg.head;
   srcEl.src = cfg.src;
   videoEl.load();
-  nextBtn.disabled = true;
-  if (!cfg.next) nextBtn.style.display = "none";
+
+  // Next button & progress
+  if (!cfg.next && nextBtn) nextBtn.style.display = "none";
   if (pbar) pbar.style.width = Math.max(0, Math.min(100, cfg.progress)) + "%";
+  if (nextBtn) nextBtn.disabled = true;
 
   const lock = () => {
     [btnAI, btnReal].forEach((b) => {
@@ -39,6 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
     feedback.className = "feedback show " + (ok ? "ok" : "no");
   };
 
+  // Fallback messages
+  const fallback = {
+    aiOk: "Correct! Clues include lip-sync mismatches, odd blinking, or lighting inconsistencies.",
+    aiNo: "Incorrect. This was AI-generated — look for lip-sync mismatches or unnatural micro-expressions.",
+    realOk:
+      "Correct! Natural expressions, consistent lighting, and aligned audio suggest authenticity.",
+    realNo:
+      "Not quite — this is real. Notice the smooth, natural movement and audio alignment.",
+  };
+
   function onChoice(choice) {
     lock();
     const isCorrect = choice === cfg.correct;
@@ -46,18 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isCorrect) {
       clicked.classList.add("correct");
-      showFeedback(choice === "ai" ? cfg.fbAiOk : cfg.fbRealOk, true);
+      const msg =
+        choice === "ai"
+          ? cfg.fbAiOk || fallback.aiOk
+          : cfg.fbRealOk || fallback.realOk;
+      showFeedback(msg, true);
     } else {
       clicked.classList.add("incorrect");
       (cfg.correct === "ai" ? btnAI : btnReal).classList.add("correct");
-      showFeedback(choice === "ai" ? cfg.fbAiNo : cfg.fbRealNo, false);
+      const msg =
+        choice === "ai"
+          ? cfg.fbAiNo || fallback.aiNo
+          : cfg.fbRealNo || fallback.realNo;
+      showFeedback(msg, false);
     }
-    if (cfg.next) nextBtn.disabled = false;
+    if (nextBtn && cfg.next) nextBtn.disabled = false;
   }
 
   btnAI.addEventListener("click", () => onChoice("ai"));
   btnReal.addEventListener("click", () => onChoice("real"));
-  nextBtn.addEventListener("click", () => {
-    if (cfg.next) window.location.href = cfg.next;
-  });
+  if (nextBtn)
+    nextBtn.addEventListener("click", () => {
+      if (cfg.next) window.location.href = cfg.next;
+    });
 });
