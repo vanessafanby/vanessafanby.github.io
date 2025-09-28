@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Question 5</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body
+    data-head="Is this video real or AI-generated?"
+    data-src="videos/q5.mp4"
+    data-correct="real"
+    data-next=""
+    data-progress="100"
+    data-fb-ai-ok=""
+    data-fb-ai-no="INCORRECT. This clip is real. Unlike deepfakes, the mouth, eyes, and audio all sync naturally here."
+    data-fb-real-ok="CORRECT! The audio and lip-sync align perfectly, which is harder for AI to replicate."
+    data-fb-real-no=""
+  >
+    <header class="site-header">
+      <h1 class="title">Is this video real or AI-generated?</h1>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <div class="video-wrap">
+          <video id="videoEl" class="video" controls preload="metadata">
+            <source id="videoSrc" src="videos/q5.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div class="choices">
+          <button id="btnAI" class="btn choice">AI-GENERATED</button>
+          <button id="btnReal" class="btn choice">REAL</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+      </section>
+
+      <!-- No next button on last page -->
+      <div class="progress">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </main>
+
+    <script src="page.js"></script>
+  </body>
+</html>
