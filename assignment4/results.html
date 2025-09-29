@@ -99,36 +99,14 @@
 
     <main class="container">
       <section class="results-card">
-        <p id="scoreBadge" class="score-badge">Deepfake Awareness Score</p>
+        <p id="scoreBadge" class="score-badge">
+          Deepfake Financial Scam Quiz Score
+        </p>
         <h2 id="bigScore" class="big-score">GREAT JOB! YOU SCORED …</h2>
         <p id="scoreSub" class="score-sub"></p>
 
-        <div class="tips">
-          <h3>What you did well</h3>
-          <ul id="goodList">
-            <li>Spotting mismatched lip-sync and audio timing.</li>
-            <li>Checking for consistent lighting and shadows.</li>
-            <li>Listening for natural breathing and cadence.</li>
-          </ul>
-
-          <h3>Keep improving</h3>
-          <ul id="learnList">
-            <li>
-              Watch eye focus and blink rhythm — deepfakes often get
-              micro-expressions wrong.
-            </li>
-            <li>
-              Look for soft edges around hair/ears and warping in backgrounds.
-            </li>
-            <li>
-              Compare reflections in eyes/glasses with the scene lighting.
-            </li>
-          </ul>
-        </div>
-
         <div class="cta-row">
           <button id="restartBtn" class="cta">Restart Quiz</button>
-          <a class="cta secondary" href="q1.html">Try Again from Q1</a>
         </div>
 
         <div style="margin-top: 14px">
@@ -166,10 +144,10 @@
 
       // Tiered message
       let tier = "";
-      if (pct >= 90) tier = "Expert detector 🔎";
-      else if (pct >= 70) tier = "Strong spotter 💪";
-      else if (pct >= 50) tier = "Getting there 📈";
-      else tier = "Starter — keep practicing 🌱";
+      if (pct >= 90) tier = "Expert detector!!";
+      else if (pct >= 70) tier = "Strong spotter!!";
+      else if (pct >= 50) tier = "Getting there!!";
+      else tier = "Keep practicing! You can do it!";
 
       bigScore.textContent = `GREAT JOB! YOU SCORED ${score} / ${total}`;
       scoreSub.textContent = `Accuracy: ${pct}% — ${tier}`;
