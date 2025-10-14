@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Question 2</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-
+  <!-- This is a real video resource with no AI included. This is a video clip that a friend insisted to act -->
   <body
     data-head="Is this video real or AI-generated?"
     data-src="videos/q2.mp4"
@@ -23,6 +23,7 @@
     data-fb-real-ok="CORRECT! This is a real video. Notice how the facial expressions and eye movements feel natural."
     data-fb-real-no="If you thought it was AI: the audio and lip movement align naturally here."
   >
+    <!-- Here are the different comments that pops up for each question and each button they press on.  -->
     <header class="site-header">
       <h1 class="title">Is this video real or AI-generated?</h1>
     </header>
@@ -42,7 +43,7 @@
 
         <div id="feedback" class="feedback"></div>
       </section>
-
+      <!-- Here, I have added in previous and next buttons on each page so the user can move freely in each page.  -->
       <button
         id="prevBtn"
         class="fab fab-prev"
@@ -65,7 +66,7 @@
         <div id="progressBar" class="progress-bar"></div>
       </div>
     </main>
-
+    <!-- I have added in a progress bar in every page, so the user will know where their progress is and how many questions they have left to answer.  -->
     <script src="page.js"></script>
   </body>
 </html>

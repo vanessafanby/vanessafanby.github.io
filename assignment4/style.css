@@ -1,21 +1,20 @@
 :root {
-  --indigo: #3c4856; /* Primary */
-  --cyan: #00b5d8; /* Secondary */
-  --green: #7dde92; /* Correct */
-  --orangeRed: #ff6b35; /* Incorrect */
-  --bg: #fafafa; /* Background */
-  --text: #2d2d2d; /* Body text */
+  --indigo: #3c4856; /* This is my primary colour  */
+  --cyan: #00b5d8; /* This is my secondary */
+  --green: #7dde92; /* This is the correct colour when the user gets the answer correct*/
+  --orangeRed: #ff6b35; /* This is the incorrect colour when the user gets the answer wrong */
+  --bg: #fafafa; /* This is the background colour*/
+  --text: #2d2d2d; /* This is the body text colour*/
   --card: #ffffff;
   --shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   --radius: 16px;
 
-  /* Font tokens */
+  /* These are the fonts that I used for the website. I received feedback in my presentation saying that the fonts previosuly used were too similar, therefore I have changed to Roboto and Cormorant Garamond, to make a more obvious contrast*/
   --font-title: "Cormorant Garamond", serif;
   --font-body: "Roboto", system-ui, -apple-system, Segoe UI, Helvetica, Arial,
     sans-serif;
 }
 
-/* base */
 * {
   box-sizing: border-box;
 }
@@ -36,7 +35,7 @@ body {
   border-bottom: 2px solid rgba(60, 72, 86, 0.08);
 }
 
-/* Headings/titles now use Cormorant Garamond */
+/* I used the Cormorant Garamond font for headings and titles*/
 h1,
 h2,
 h3,
@@ -119,7 +118,7 @@ h6,
   cursor: not-allowed;
 }
 
-/* Feedback popups: force Roboto and bold headline feel */
+/* Another texts, such as feedback popups, were used with font normal Roboto and bold headline feel */
 .feedback {
   margin-top: 14px;
   border-radius: 12px;
@@ -142,7 +141,6 @@ h6,
   color: #5b1200;
 }
 
-/* FAB Buttons */
 .fab {
   position: fixed;
   bottom: 22px;
@@ -208,7 +206,6 @@ h6,
   border: 0;
 }
 
-/* Mobile tweaks */
 @media (max-width: 640px) {
   .choices {
     grid-template-columns: 1fr;
@@ -223,9 +220,9 @@ h6,
   }
 }
 
-/* --- BIG WRONG REACTION --- */
+/* After the in-class presentaion, I received feedback saying that there should be a bigger reaction when the user gets the question wrong. SO HERE WE HAVE A BETTER INTERACTIVE SYSTEM!!--- */
 
-/* Red screen flash */
+/* This is a red screen flash*/
 body.is-wrong {
   animation: screenFlash 0.6s ease;
 }
@@ -241,7 +238,7 @@ body.is-wrong {
   }
 }
 
-/* Shake the main card and draw a bold danger outline */
+/* Here, I have added in a shake the main card, which is the feedback section and added in a bolder border outline */
 .card.is-wrong {
   border: 3px solid var(--orangeRed);
   box-shadow: 0 0 0 6px rgba(255, 107, 53, 0.18),
@@ -270,7 +267,7 @@ body.is-wrong {
   }
 }
 
-/* Pulse red ring around the video */
+/* Here i have added a pulse red ring around the video */
 .video-wrap.is-wrong {
   position: relative;
   z-index: 0;
@@ -296,7 +293,7 @@ body.is-wrong {
   }
 }
 
-/* Make the incorrect feedback louder */
+/* Make the incorrect feedback LOUDER to raise awareness*/
 .feedback.no {
   font-size: 18px;
   border-width: 3px;

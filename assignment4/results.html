@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Your Results</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -121,7 +121,7 @@
       </section>
     </main>
 
-    <!-- Bottom-left Previous (go back to last question) -->
+    <!-- On the bottom left, i have added a previous button, which allows the user return to the previous question. -->
     <button
       id="prevBtn"
       class="fab fab-prev"
@@ -142,7 +142,7 @@
       const bigScore = document.getElementById("bigScore");
       const scoreSub = document.getElementById("scoreSub");
 
-      // Tiered message
+      // Different messages popus up when the user scores different marks
       let tier = "";
       if (pct >= 90) tier = "You're an expert!!";
       else if (pct >= 70) tier = "Very strong!!";
@@ -152,18 +152,17 @@
       bigScore.textContent = `GREAT JOB! YOU SCORED ${score} / ${total}`;
       scoreSub.textContent = `Accuracy: ${pct}% — ${tier}`;
 
-      // Restart clears per-page answered flags and score, then returns to Q1
+      // Here, it restarts and clears per-page answered flags and score, then returns to question one
       document.getElementById("restartBtn").addEventListener("click", () => {
         Object.keys(localStorage).forEach((k) => {
           if (k.startsWith("answered:")) localStorage.removeItem(k);
         });
         localStorage.removeItem(KEY_SCORE);
-        // Optionally reset total:
-        // localStorage.removeItem(KEY_TOTAL);
+
         window.location.href = "q1.html";
       });
 
-      // Previous: go back to last question
+      // This is the previous button, but allows the user go back to last question
       document.getElementById("prevBtn").addEventListener("click", () => {
         window.location.href = "q5.html";
       });

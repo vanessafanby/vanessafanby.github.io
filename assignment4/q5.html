@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Question 5</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-
+  <!-- This is a real video resource with no AI included. This is a video clip that a friend insisted to act -->
   <body
     data-head="Is this video real or AI-generated?"
     data-src="videos/q5.mp4"
@@ -24,6 +24,7 @@
     data-fb-real-ok="CORRECT! The audio and lip-sync align perfectly, which is harder for AI to replicate."
     data-fb-real-no="If you were unsure: the natural micro-expressions are a strong real cue."
   >
+    <!-- Here are the different comments that pops up for each question and each button they press on.  -->
     <header class="site-header">
       <h1 class="title">Is this video real or AI-generated?</h1>
     </header>
@@ -52,10 +53,11 @@
       >
         ←
       </button>
-      <!-- No Next button on the last page; a star (★) will appear after answering to go to results -->
+      <!-- After answer the last question, there'll be a 'next' button, which is a 'star' that leads the user to the results page -->
 
       <div class="progress">
         <div id="progressBar" class="progress-bar"></div>
+        <!-- I have added in a progress bar in every page, so the user will know where their progress is and how many questions they have left to answer.  -->
       </div>
     </main>
 
