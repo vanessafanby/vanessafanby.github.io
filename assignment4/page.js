@@ -1,10 +1,8 @@
-// page.js — single source of truth for each question page
 document.addEventListener("DOMContentLoaded", () => {
-  // ---------- Config ----------
   const body = document.body;
   const cfg = {
     src: body.dataset.src,
-    correct: body.dataset.correct, // "ai" | "real"
+    correct: body.dataset.correct,
     head: body.dataset.head || "Is this video real or AI-generated?",
     next: body.dataset.next || "",
     prev: body.dataset.prev || "",
@@ -17,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     total: parseInt(body.dataset.total || "5", 10),
   };
 
-  // ---------- Elements ----------
+  // These are the elements
   const titleEl = document.querySelector(".title");
   const videoEl = document.getElementById("videoEl");
   const srcEl = document.getElementById("videoSrc");
@@ -28,12 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prevBtn");
   const pbar = document.getElementById("progressBar");
 
-  // ---------- Init UI ----------
   titleEl.textContent = cfg.head;
   if (srcEl) srcEl.src = cfg.src;
   if (videoEl) videoEl.load();
 
-  // Prev / Next
+  // These are the previous and next buttons
   if (!cfg.prev && prevBtn) prevBtn.style.display = "none";
   if (prevBtn && cfg.prev)
     prevBtn.addEventListener("click", () => (window.location.href = cfg.prev));
@@ -43,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (pbar) pbar.style.width = Math.max(0, Math.min(100, cfg.progress)) + "%";
 
-  // ---------- Scoring ----------
+  // This is the scoring system
   const KEY_SCORE = "quizScore";
   const KEY_TOTAL = "quizTotal";
   const pageKey = "answered:" + window.location.pathname;
@@ -61,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem(pageKey, "true");
   }
 
-  // ---------- Helpers ----------
   const lock = () => {
     [btnAI, btnReal].forEach((b) => {
       b.disabled = true;
@@ -82,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     realNo:
       "Not quite — this is real. Notice the smooth, natural movement and audio alignment.",
   };
+  // Here are the responses that pops up when the user click on different answers.
 
   function createResultsButton() {
     if (document.getElementById("resultsBtn")) return;
@@ -97,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(btn);
   }
 
-  // ---------- Choice handler ----------
   function onChoice(choice) {
     lock();
 
@@ -120,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
           : cfg.fbRealNo || fallback.realNo;
       showFeedback(msg, false);
 
-      // >>> BIG WRONG REACTION <<<
+      //After the in-class presentation, I received feedback saying that there should be a bigger reaction when the user gets a question wrong. Therefore, I have added a more 'obvious' reaction. I have added in shake, with a bolder border line and a darker red colour to make it more 'obvious' and 'alert'.
       const card = document.querySelector(".card");
       const vwrap = document.querySelector(".video-wrap");
       document.body.classList.add("is-wrong");
@@ -136,10 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
     awardScoreIfFirstTime(isCorrect);
 
     if (nextBtn && cfg.next) nextBtn.disabled = false;
-    if (!cfg.next) createResultsButton(); // last page
+    if (!cfg.next) createResultsButton();
   }
-
-  // ---------- Events ----------
+  // This is the last page which brings the user to the result page, where they're able to view there final score, read feedback, restart game or return to any question that they got wrong.
   btnAI.addEventListener("click", () => onChoice("ai"));
   btnReal.addEventListener("click", () => onChoice("real"));
   if (nextBtn && cfg.next)
