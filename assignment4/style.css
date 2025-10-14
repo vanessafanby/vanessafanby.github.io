@@ -8,6 +8,11 @@
   --card: #ffffff;
   --shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   --radius: 16px;
+
+  /* Font tokens */
+  --font-title: "Cormorant Garamond", serif;
+  --font-body: "Roboto", system-ui, -apple-system, Segoe UI, Helvetica, Arial,
+    sans-serif;
 }
 
 /* base */
@@ -20,8 +25,7 @@ body {
   padding: 0;
 }
 body {
-  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-body);
   color: var(--text);
   background: var(--bg);
   line-height: 1.5;
@@ -31,13 +35,24 @@ body {
   background: #fff;
   border-bottom: 2px solid rgba(60, 72, 86, 0.08);
 }
+
+/* Headings/titles now use Cormorant Garamond */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-title);
   font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--indigo);
+}
+.title {
   font-size: clamp(20px, 2.5vw, 28px);
   margin: 0;
   text-align: center;
-  color: var(--indigo);
 }
 
 .container {
@@ -72,6 +87,7 @@ body {
   gap: 12px;
 }
 .btn {
+  font-family: var(--font-body);
   font-weight: 600;
   border: none;
   border-radius: 12px;
@@ -103,10 +119,12 @@ body {
   cursor: not-allowed;
 }
 
+/* Feedback popups: force Roboto and bold headline feel */
 .feedback {
   margin-top: 14px;
   border-radius: 12px;
   padding: 12px 14px;
+  font-family: var(--font-body);
   font-weight: 700;
   display: none;
 }
@@ -124,6 +142,7 @@ body {
   color: #5b1200;
 }
 
+/* FAB Buttons */
 .fab {
   position: fixed;
   bottom: 22px;
@@ -149,7 +168,6 @@ body {
   opacity: 0.4;
   cursor: not-allowed;
 }
-
 .fab-prev {
   left: 22px;
 }
@@ -190,6 +208,7 @@ body {
   border: 0;
 }
 
+/* Mobile tweaks */
 @media (max-width: 640px) {
   .choices {
     grid-template-columns: 1fr;
@@ -203,6 +222,7 @@ body {
     bottom: 16px;
   }
 }
+
 /* --- BIG WRONG REACTION --- */
 
 /* Red screen flash */
