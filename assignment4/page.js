@@ -1,8 +1,10 @@
+// page.js — single source of truth for each question page
 document.addEventListener("DOMContentLoaded", () => {
+  // ---------- Config ----------
   const body = document.body;
   const cfg = {
     src: body.dataset.src,
-    correct: body.dataset.correct, // "ai" or "real"
+    correct: body.dataset.correct, // "ai" | "real"
     head: body.dataset.head || "Is this video real or AI-generated?",
     next: body.dataset.next || "",
     prev: body.dataset.prev || "",
@@ -15,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     total: parseInt(body.dataset.total || "5", 10),
   };
 
+  // ---------- Elements ----------
   const titleEl = document.querySelector(".title");
   const videoEl = document.getElementById("videoEl");
   const srcEl = document.getElementById("videoSrc");
@@ -25,27 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.getElementById("prevBtn");
   const pbar = document.getElementById("progressBar");
 
+  // ---------- Init UI ----------
   titleEl.textContent = cfg.head;
-  if (srcEl) {
-    srcEl.src = cfg.src;
-  }
-  if (videoEl) {
-    videoEl.load();
-  }
+  if (srcEl) srcEl.src = cfg.src;
+  if (videoEl) videoEl.load();
 
-  // Prev/Next setup
+  // Prev / Next
   if (!cfg.prev && prevBtn) prevBtn.style.display = "none";
   if (prevBtn && cfg.prev)
-    prevBtn.addEventListener("click", () => {
-      window.location.href = cfg.prev;
-    });
+    prevBtn.addEventListener("click", () => (window.location.href = cfg.prev));
 
   if (!cfg.next && nextBtn) nextBtn.style.display = "none";
   if (nextBtn) nextBtn.disabled = true;
 
   if (pbar) pbar.style.width = Math.max(0, Math.min(100, cfg.progress)) + "%";
 
-  // Score storage
+  // ---------- Scoring ----------
   const KEY_SCORE = "quizScore";
   const KEY_TOTAL = "quizTotal";
   const pageKey = "answered:" + window.location.pathname;
@@ -53,15 +51,24 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!localStorage.getItem(KEY_TOTAL)) {
     localStorage.setItem(KEY_TOTAL, String(cfg.total));
   }
-
   const alreadyAnswered = localStorage.getItem(pageKey) === "true";
 
+  function awardScoreIfFirstTime(isCorrect) {
+    if (alreadyAnswered) return;
+    const prev = parseInt(localStorage.getItem(KEY_SCORE) || "0", 10);
+    const next = isCorrect ? prev + 1 : prev;
+    localStorage.setItem(KEY_SCORE, String(next));
+    localStorage.setItem(pageKey, "true");
+  }
+
+  // ---------- Helpers ----------
   const lock = () => {
     [btnAI, btnReal].forEach((b) => {
       b.disabled = true;
       b.classList.add("disabled");
     });
   };
+
   const showFeedback = (text, ok) => {
     feedback.textContent = text;
     feedback.className = "feedback show " + (ok ? "ok" : "no");
@@ -76,16 +83,24 @@ document.addEventListener("DOMContentLoaded", () => {
       "Not quite — this is real. Notice the smooth, natural movement and audio alignment.",
   };
 
-  function awardScoreIfFirstTime(isCorrect) {
-    if (alreadyAnswered) return;
-    const prev = parseInt(localStorage.getItem(KEY_SCORE) || "0", 10);
-    const next = isCorrect ? prev + 1 : prev;
-    localStorage.setItem(KEY_SCORE, String(next));
-    localStorage.setItem(pageKey, "true");
+  function createResultsButton() {
+    if (document.getElementById("resultsBtn")) return;
+    const btn = document.createElement("button");
+    btn.id = "resultsBtn";
+    btn.className = "fab fab-next";
+    btn.title = "View results";
+    btn.setAttribute("aria-label", "View results");
+    btn.textContent = "★";
+    btn.addEventListener("click", () => {
+      window.location.href = cfg.results;
+    });
+    document.body.appendChild(btn);
   }
 
+  // ---------- Choice handler ----------
   function onChoice(choice) {
     lock();
+
     const isCorrect = choice === cfg.correct;
     const clicked = choice === "ai" ? btnAI : btnReal;
 
@@ -104,32 +119,29 @@ document.addEventListener("DOMContentLoaded", () => {
           ? cfg.fbAiNo || fallback.aiNo
           : cfg.fbRealNo || fallback.realNo;
       showFeedback(msg, false);
+
+      // >>> BIG WRONG REACTION <<<
+      const card = document.querySelector(".card");
+      const vwrap = document.querySelector(".video-wrap");
+      document.body.classList.add("is-wrong");
+      if (card) card.classList.add("is-wrong", "shake");
+      if (vwrap) vwrap.classList.add("is-wrong");
+      setTimeout(() => {
+        document.body.classList.remove("is-wrong");
+        if (card) card.classList.remove("is-wrong", "shake");
+        if (vwrap) vwrap.classList.remove("is-wrong");
+      }, 650);
     }
 
     awardScoreIfFirstTime(isCorrect);
 
     if (nextBtn && cfg.next) nextBtn.disabled = false;
-    if (!cfg.next) createResultsButton(); // on last page
+    if (!cfg.next) createResultsButton(); // last page
   }
 
-  function createResultsButton() {
-    if (document.getElementById("resultsBtn")) return;
-    const btn = document.createElement("button");
-    btn.id = "resultsBtn";
-    btn.className = "fab fab-next";
-    btn.title = "View results";
-    btn.setAttribute("aria-label", "View results");
-    btn.textContent = "★";
-    btn.addEventListener("click", () => {
-      window.location.href = cfg.results;
-    });
-    document.body.appendChild(btn);
-  }
-
+  // ---------- Events ----------
   btnAI.addEventListener("click", () => onChoice("ai"));
   btnReal.addEventListener("click", () => onChoice("real"));
   if (nextBtn && cfg.next)
-    nextBtn.addEventListener("click", () => {
-      window.location.href = cfg.next;
-    });
+    nextBtn.addEventListener("click", () => (window.location.href = cfg.next));
 });

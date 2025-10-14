@@ -203,3 +203,86 @@ body {
     bottom: 16px;
   }
 }
+/* --- BIG WRONG REACTION --- */
+
+/* Red screen flash */
+body.is-wrong {
+  animation: screenFlash 0.6s ease;
+}
+@keyframes screenFlash {
+  0% {
+    background: var(--bg);
+  }
+  30% {
+    background: color-mix(in srgb, var(--orangeRed) 18%, var(--bg));
+  }
+  100% {
+    background: var(--bg);
+  }
+}
+
+/* Shake the main card and draw a bold danger outline */
+.card.is-wrong {
+  border: 3px solid var(--orangeRed);
+  box-shadow: 0 0 0 6px rgba(255, 107, 53, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.12);
+}
+.shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translateX(-1px);
+  }
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-4px);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+}
+
+/* Pulse red ring around the video */
+.video-wrap.is-wrong {
+  position: relative;
+  z-index: 0;
+}
+.video-wrap.is-wrong::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 14px;
+  border: 3px solid var(--orangeRed);
+  box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.35);
+  animation: pulseRing 0.7s ease-out 1;
+  pointer-events: none;
+}
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.35);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(255, 107, 53, 0);
+    opacity: 0;
+  }
+}
+
+/* Make the incorrect feedback louder */
+.feedback.no {
+  font-size: 18px;
+  border-width: 3px;
+  padding: 14px 16px;
+}
+.feedback.no::before {
+  content: "⚠️ ";
+  font-weight: 700;
+}
