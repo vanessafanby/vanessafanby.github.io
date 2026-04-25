@@ -4,6 +4,14 @@
  */
 const characterPreview = document.querySelector("#character-preview");
 
+const music = document.getElementById("character-music");
+
+window.addEventListener("load", () => {
+  if (music) {
+    music.play().catch(() => {});
+  }
+});
+
 /**
  * Text element to display the selected character's name.
  * @type {HTMLElement}

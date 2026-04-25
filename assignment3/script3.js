@@ -1,3 +1,11 @@
+const gameMusic = document.getElementById("game-music");
+
+window.addEventListener("load", () => {
+  if (gameMusic) {
+    gameMusic.play().catch(() => {});
+  }
+});
+
 function setMirrorBackground(src) {
   const mirrorBg = document.getElementById("mirror-bg");
 

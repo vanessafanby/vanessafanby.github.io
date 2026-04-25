@@ -3,18 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <title>Dress Up Game</title>
+
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Fredoka&family=Quicksand&family=Cherry+Bomb+One&display=swap"
       rel="stylesheet"
     />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="page-start">
-      <button id="start-button">Start to Play</button>
-      <!-- I want to make this page look simple and easy, so I just have the words "Start to Play" on the first page. 
-    -->
-    </div>
 
+  <body class="page-start">
+    <!-- Start button -->
+    <button id="start-button">Start to Play</button>
+
+    <!-- 
+      Design choice:
+      I kept this page simple and clean with only one button 
+      to make it easy for users to understand how to start the game.
+    -->
+
+    <!-- Background music -->
+    <audio id="start-music" autoplay loop>
+      <source src="assets/music/start.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- JS -->
     <script src="script1.js"></script>
   </body>
 </html>
